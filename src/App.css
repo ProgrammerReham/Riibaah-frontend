@@ -1,0 +1,444 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--color-chart-2);
+  --color-chart-3: var(--color-chart-3);
+  --color-chart-4: var(--color-chart-4);
+  --color-chart-5: var(--color-chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* Cyberpunk Theme - Always Dark */
+:root {
+  /* Cyberpunk Color Palette */
+  --cyber-black: #0a0a0a;
+  --cyber-dark: #111111;
+  --cyber-darker: #1a1a1a;
+  --cyber-neon-cyan: #00ffff;
+  --cyber-neon-pink: #ff00ff;
+  --cyber-neon-purple: #8a2be2;
+  --cyber-neon-green: #00ff41;
+  --cyber-neon-blue: #0080ff;
+  --cyber-neon-orange: #ff6600;
+  --cyber-gray: #333333;
+  --cyber-light-gray: #666666;
+  --cyber-white: #ffffff;
+  
+  /* Override default theme with cyberpunk colors */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #00ffff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #333333;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #666666;
+  --accent: #ff00ff;
+  --accent-foreground: #ffffff;
+  --destructive: #ff6600;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #00ffff;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00ffff;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #333333;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #00ffff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: \'Inter\', \'Segoe UI\', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Force dark theme */
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Cyberpunk Custom Styles */
+@layer components {
+  /* Neon glow effects */
+  .neon-glow {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  
+  .neon-glow-cyan {
+    color: var(--cyber-neon-cyan);
+    text-shadow: 0 0 5px var(--cyber-neon-cyan), 0 0 10px var(--cyber-neon-cyan), 0 0 15px var(--cyber-neon-cyan);
+  }
+  
+  .neon-glow-pink {
+    color: var(--cyber-neon-pink);
+    text-shadow: 0 0 5px var(--cyber-neon-pink), 0 0 10px var(--cyber-neon-pink), 0 0 15px var(--cyber-neon-pink);
+  }
+  
+  .neon-glow-purple {
+    color: var(--cyber-neon-purple);
+    text-shadow: 0 0 5px var(--cyber-neon-purple), 0 0 10px var(--cyber-neon-purple), 0 0 15px var(--cyber-neon-purple);
+  }
+  
+  .neon-glow-green {
+    color: var(--cyber-neon-green);
+    text-shadow: 0 0 5px var(--cyber-neon-green), 0 0 10px var(--cyber-neon-green), 0 0 15px var(--cyber-neon-green);
+  }
+  
+  /* Cyberpunk borders */
+  .cyber-border {
+    border: 1px solid var(--cyber-neon-cyan);
+    box-shadow: 0 0 10px var(--cyber-neon-cyan);
+  }
+  
+  .cyber-border-pink {
+    border: 1px solid var(--cyber-neon-pink);
+    box-shadow: 0 0 10px var(--cyber-neon-pink);
+  }
+  
+  /* Glitch effect */
+  .glitch {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: var(--cyber-neon-cyan);
+    z-index: -1;
+  }
+  
+  .glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: var(--cyber-neon-pink);
+    z-index: -2;
+  }
+  
+  /* Pulse animation */
+  .pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite alternate;
+  }
+  
+  /* Hover effects */
+  .cyber-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .cyber-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--cyber-neon-cyan);
+  }
+  
+  /* Scrollbar styling */
+  .cyber-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar-track {
+    background: var(--cyber-dark);
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--cyber-neon-cyan);
+    border-radius: 4px;
+  }
+  
+  .cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--cyber-neon-pink);
+  }
+  
+  /* Message bubble styles */
+  .message-sent {
+    background: linear-gradient(135deg, var(--cyber-neon-cyan), var(--cyber-neon-blue));
+    color: var(--cyber-black);
+  }
+  
+  .message-received {
+    background: var(--cyber-darker);
+    border: 1px solid var(--cyber-gray);
+    color: var(--cyber-white);
+  }
+  
+  /* Online status indicator */
+  .status-online {
+    background: var(--cyber-neon-green);
+    box-shadow: 0 0 10px var(--cyber-neon-green);
+  }
+  
+  .status-offline {
+    background: var(--cyber-light-gray);
+  }
+  
+  .status-away {
+    background: var(--cyber-neon-orange);
+    box-shadow: 0 0 10px var(--cyber-neon-orange);
+  }
+}
+
+/* Keyframe animations */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+}
+
+@keyframes pulse-neon {
+  from {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  to {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+/* Typing indicator animation */
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+.typing-dot {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* Custom button styles */
+.btn-cyber-primary {
+  background: linear-gradient(135deg, var(--cyber-neon-cyan), var(--cyber-neon-blue));
+  color: var(--cyber-black);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cyber-primary:hover {
+  background: linear-gradient(135deg, var(--cyber-neon-blue), var(--cyber-neon-cyan));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+.btn-cyber-secondary {
+  background: transparent;
+  color: var(--cyber-neon-cyan);
+  border: 1px solid var(--cyber-neon-cyan);
+  transition: all 0.3s ease;
+}
+
+.btn-cyber-secondary:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Input styles */
+.input-cyber {
+  background: var(--cyber-darker);
+  border: 1px solid var(--cyber-gray);
+  color: var(--cyber-white);
+  transition: all 0.3s ease;
+}
+
+.input-cyber:focus {
+  border-color: var(--cyber-neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  outline: none;
+}
+
+.input-cyber::placeholder {
+  color: var(--cyber-light-gray);
+}
+
+/* Card styles */
+.card-cyber {
+  background: rgba(17, 17, 17, 0.9);
+  border: 1px solid var(--cyber-gray);
+  backdrop-filter: blur(10px);
+}
+
+.card-cyber-glow {
+  background: rgba(17, 17, 17, 0.9);
+  border: 1px solid var(--cyber-neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Pulse animation for status indicators */
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Loading spinner */
+.spinner-cyber {
+  border: 2px solid var(--cyber-gray);
+  border-top: 2px solid var(--cyber-neon-cyan);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Custom neon-glow-blue for RiiBah text */
+.neon-glow-blue {
+  color: #ffffff !important; /* Ensure white text */
+  text-shadow: 
+    0 0 5px #0080ff, 
+    0 0 10px #0080ff, 
+    0 0 15px #0080ff, 
+    0 0 20px #0080ff,
+    0 0 25px #0080ff; /* Stronger blue glow */
+  font-weight: 700 !important; /* Ensure bold text */
+}
+
+
